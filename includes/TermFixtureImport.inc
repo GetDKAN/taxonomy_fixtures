@@ -83,8 +83,8 @@ class TermFixtureImport {
   }
 
   public function save() {
+    $parents = array();
     if (count($this->parents)) {
-      $parents = array();
       foreach ($this->parents as $parent) {
         $query = new EntityFieldQuery();
         $term = $query->entityCondition('entity_type', 'taxonomy_term')
@@ -92,8 +92,8 @@ class TermFixtureImport {
                     ->execute();
         $parents = array_merge($parents, array_keys($term['taxonomy_term']));
       }
-      $this->term->parent = $parents;
     }
+    $this->term->parent = $parents;
     taxonomy_term_save($this->term);
   }
 }
