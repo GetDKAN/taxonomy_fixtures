@@ -60,6 +60,8 @@ class TermFixtureImport {
     $file = (object) array(
       'uid' => 1,
       'uri' => $filepath,
+      // Display is required for inserts into file types.
+      'display' => 0,
       'filemime' => file_get_mimetype($filepath),
       'status' => 1,
     );
