@@ -93,6 +93,9 @@ class TermFixtureImport {
         $parents = array_merge($parents, array_keys($term['taxonomy_term']));
       }
     }
+    if (!count($parents)) {
+      $parents = array(0);
+    }
     $this->term->parent = $parents;
     taxonomy_term_save($this->term);
   }
