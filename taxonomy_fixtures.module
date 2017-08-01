@@ -49,7 +49,8 @@ function taxonomy_fixtures_import_terms($vocabularies = array()) {
       }
     }
     else {
-	    drupal_set_message(t("Vocabulary - $machine_name not exist"), 'error'); 
+	    drupal_set_message(t("Vocabulary %machine_name does not exist.",
+	      array('%machine_name' => $machine_name)), 'error'); 
 	  }
   }
 
